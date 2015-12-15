@@ -1,0 +1,43 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.5.0'
+    }
+}
+
+public String formatVersion(Object format){
+    format = String.format(format, String.valueOf(project.support_version))
+    return format
+}
+public int getCompileSDK(){
+    return Integer.valueOf(project.COMPILE_SDK)
+}
+public int getMinSDK(){
+    return Integer.valueOf(project.MIN_SDK)
+}
+
+public String getBuildTools(){
+    return project.BUILD_TOOLS
+}
+
+
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral();
+        maven {
+            url 'https://oss.sonatype.org/content/repositories/releases'
+        }
+        maven {
+            url 'https://oss.sonatype.org/content/repositories/snapshots'
+        }
+    }
+}
+
+
+
